@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqoyamuhvanv5"]
+
+[ext_resource type="PackedScene" uid="uid://523hvfo38cj2" path="res://person.tscn" id="1_uimuj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0olu0"]
+sky_top_color = Color(0.0221414, 0.0856571, 0.187939, 1)
+sky_horizon_color = Color(0.265956, 0.274085, 0.290655, 1)
+ground_horizon_color = Color(0.265956, 0.274085, 0.290655, 1)
+
+[sub_resource type="Sky" id="Sky_jf6tj"]
+sky_material = SubResource("ProceduralSkyMaterial_0olu0")
+
+[sub_resource type="Environment" id="Environment_35a1f"]
+background_mode = 2
+sky = SubResource("Sky_jf6tj")
+tonemap_mode = 2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_35a1f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.593419, 0.635991, -0.493325, 0, 0.612907, 0.790155, 0.804894, 0.468893, -0.363711, 0, 0, 0)
+light_energy = 32.55
+shadow_enabled = true
+directional_shadow_max_distance = 1387.0
+
+[node name="PERSON" parent="." instance=ExtResource("1_uimuj")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.987262, 0.159106, 0, -0.159106, 0.987262, 0, 5.96273, 9.22712)
